@@ -1,3 +1,4 @@
+
 /*
 
 Think of 5 different real world "things" that you 
@@ -16,4 +17,15 @@ var car = {
 };
 
 */
+
+ var smartphone = {
+     brand: "Xiaomi",
+     camera: 16,
+     ram: 4,
+     rom: 64,
+     model: "Redmi Note 5",
+     color: "black" 
+ };
+
+ console.log(smartphone);
 

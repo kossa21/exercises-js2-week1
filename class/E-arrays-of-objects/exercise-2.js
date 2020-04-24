@@ -39,14 +39,29 @@ DO NOT EDIT ANYTHING ABOVE THIS LINE
 WRITE YOUR CODE BELOW
 */
 
+function within500 (object) {
+    return object.distanceKms <= 500;
+}
 
-var destinationNamesWithin500Kms = // Complete here
+function byFerry (object) {
+    return object.transportations.includes("ferry");
+}
 
-var destinationNameReachableByFerry = // Complete here
+function byTrain300(object){
+    return object.distanceKms >= 300 && object.transportations.includes("train");
+}
 
-var destinationNamesMoreThan300KmsAwayByTrain = // Complete here (PRINT THE RESULT IN THE CONSOLE USING FOREACH)
+function showDestinationName (object){
+    return object.destinationName;
+}
 
+var destinationNamesWithin500Kms = travelDestinations.filter(within500).map(showDestinationName) ;// Complete here
 
+var destinationNameReachableByFerry = travelDestinations.filter(byFerry).map(showDestinationName);// Complete here
+
+var destinationNamesMoreThan300KmsAwayByTrain = travelDestinations.filter(byTrain300).map(showDestinationName);// Complete here (PRINT THE RESULT IN THE CONSOLE USING FOREACH)
+
+// printConsole(destinationNamesWithin500Kms);
 /*
 DO NOT EDIT ANYTHING BELOW THIS LINE
 */
