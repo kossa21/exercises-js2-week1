@@ -28,36 +28,75 @@ In addition will substract 1 in the product stock of bought products
 */
 
 var products = [];
-
 var product1 = {
   id: 1,
   name: "Toaster X56 Plus",
   price: 12.98,
   stock: 105
 };
-var product1 = {
+var product2 = {
   id: 2,
   name: "Watch Rocker",
   price: 9.99,
   stock: 2
 };
+var product3 = {
+  id: 3,
+  name: "Xiaomi redmi note 5",
+  price: 189.99,
+  stock: 2
+};
+var product4 = {
+  id: 4,
+  name: "Smart Watch",
+  price: 45.90,
+  stock: 5
+};
 
 products.push(product1);
+products.push(product2);
+products.push(product3);
+products.push(product4);
 
 var shoppingCart = {
   totalPrice: 0,
-  selectedProducts = []
+  selectedProducts: []
 };
 
-function addToShoppingCart(id){
+function getIndexOfProduct(arr, id){
+  return arr.map(object => object.id).indexOf(id);
+}
 
+function addToShoppingCart(id){
+  var pos = getIndexOfProduct(products, id);
+
+  if(products[pos].stock > 0) {
+    shoppingCart.selectedProducts.push(products[pos]);
+    shoppingCart.totalPrice += products[pos].price;
+  } else {
+    console.log("There is not enough stock for this item");
+  }
+
+  
 }
 
 function removeFromShoppingCart(id){
+  var pos = getIndexOfProduct(shoppingCart.selectedProducts, id);
 
+  shoppingCart.selectedProducts.splice(pos, 1);
+  shoppingCart.totalPrice -= products[pos].price;
 }
 
 function shop(){
+  var id = 0;
+
+  shoppingCart.selectedProducts.forEach(element => {
+    indexInProducts = getIndexOfProduct(products, element.id);
+
+    products[indexInProducts].stock -= 1;
+  });
+
+  shoppingCart.selectedProducts = [];
 
 }
 

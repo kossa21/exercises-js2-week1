@@ -116,27 +116,75 @@ var mentors = [
 
 
 mentors.forEach(function(object){
+  //Task #3
+  object.addSkill = function addSkill(newSkill){
+    object.skills.push(newSkill);
+  };
+
+  //Task #7
+  object.addStudentLikes = function addStudentLikes(){
+    object.studentLikes += 1;
+  };
+
   if(object.job.city === "Barcelona"){
+    //Task #2
     object.class = "Jun1";
     object.addSkill("SQL");
 
+    //Task #1
     if(object.skills.includes("React")){
       console.log(`Hi, my name is ${object.firstName} ${object.lastName}. I work in Barcelona and i know React.`);
     }
   }
 
-  object.favouriteFood = function favouriteFood(){console.log("Hi, my name is "+this.firstName);};
-
-  object.favouriteFood();
 })
 
+//Task #4
 function addSkill(mentors, newSkill){
   mentors.forEach(function(object){
     object.addSkill(newSkill);
   });
 }
 
+//Task #5
+function removeSkill(mentors, skill){
+  mentors.forEach(element => {
+    element.skills.splice(element.skills.indexOf(skill), 1);
+  });
+}
+
+//Task 6
+function mentorWithMoreSkills(mentors){
+  var biggestNumOfSkills = 0;
+  var mentorMoreSkills = "";
+
+  for (let i = 0; i < mentors.length; i++) {
+      if(mentors[i].skills.length > biggestNumOfSkills){
+        biggestNumOfSkills = mentors[i].length;
+        mentorMoreSkills = mentors[i].firstName + " " + mentors[i].lastName;
+      }  
+  }
+
+  return mentorMoreSkills;
+
+}
+
+//Task 8 
+function addLikeToAllMentors (mentors) {
+  mentors.forEach(element => {
+    element.addStudentLikes();
+  });
+}
+
 addSkill(mentors, "Cooking");
+
+removeSkill(mentors, "Cooking");
+
+addLikeToAllMentors(mentors);
+
+console.log(mentorWithMoreSkills(mentors));
+
+
 
 
 
