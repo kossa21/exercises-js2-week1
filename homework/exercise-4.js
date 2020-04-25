@@ -61,12 +61,16 @@ var restaurantFinderApplication = {
     restaurants: restaurants,
     findAvailableRestaurants: function(numberOfPeople) {
         // Complete here
+        return restaurants.filter(object => (object.totalSeats - object.numberOfCustomers) >= numberOfPeople).map(object => object.name);
     },
     findRestaurantServingDish: function(dishName) {
         // Complete here
+        return restaurants.filter(object => object.menu.includes(dishName)).map(object => object.name);
+
     },
     countNumberOfRestaurantsInArea: function(area) {
         // Complete here
+        return restaurants.filter(object => object.address.area === area).length;
     }
 };
 

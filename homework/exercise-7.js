@@ -39,6 +39,18 @@ var writers = [
   },
 ];
 
+function printMessage(object){
+  var firstName = object.firstName;
+  var lastName = object.lastName;
+  var age = object.age;
+  var occupation = object.occupation;
+
+  console.log(`Hi, my name is ${firstName} ${lastName}. I am ${age} years old, and work as a ${occupation}.`);
+}
+
+writers.filter(object => object.alive === true).forEach(printMessage);
+
+
 /*
 If you want an extra challenge, only `console.log()` the writers that are alive.
 */

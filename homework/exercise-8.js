@@ -55,6 +55,9 @@ var mentors = [
         company: "Google",
         position: "Senior developer",
         city: "Barcelona"
+      },
+      addSkill: function (newSkill) {
+        this.skills.push(newSkill);
       }
   },
   {
@@ -68,6 +71,9 @@ var mentors = [
         company: "FC Barcelona",
         position: "Player",
         city: "Barcelona"
+      },
+      addSkill: function (newSkill) {
+        this.skills.push(newSkill);
       }
   },
   {
@@ -81,6 +87,9 @@ var mentors = [
         company: "Facebook",
         position: "Software Manager",
         city: "Chicago"
+      },
+      addSkill: function (newSkill) {
+        this.skills.push(newSkill);
       }
   },  
   {
@@ -94,9 +103,43 @@ var mentors = [
         company: "Amazon",
         position: "Senior developer",
         city: "Barcelona"
+      },
+      addSkill: function (newSkill) {
+        this.skills.push(newSkill);
       }
   },
 
 ];
 
 //YOUR CODE HERE
+
+
+
+mentors.forEach(function(object){
+  if(object.job.city === "Barcelona"){
+    object.class = "Jun1";
+    object.addSkill("SQL");
+
+    if(object.skills.includes("React")){
+      console.log(`Hi, my name is ${object.firstName} ${object.lastName}. I work in Barcelona and i know React.`);
+    }
+  }
+
+  object.favouriteFood = function favouriteFood(){console.log("Hi, my name is "+this.firstName);};
+
+  object.favouriteFood();
+})
+
+function addSkill(mentors, newSkill){
+  mentors.forEach(function(object){
+    object.addSkill(newSkill);
+  });
+}
+
+addSkill(mentors, "Cooking");
+
+
+
+
+console.log("\nDisplaying info of objects:\n");
+console.log(mentors);
